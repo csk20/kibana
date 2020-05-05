@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-count ='ps -ef | grep health | grep bin | wc -l | awk 'print$1''
+count ='lsof -i :5601 | wc -l | awk 'print$1''
 
 if[$count -eq 0]; then
    echo -n "starting kibana.."
